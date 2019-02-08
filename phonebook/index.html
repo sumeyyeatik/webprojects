@@ -32,3 +32,147 @@ e-mail: <input  id="mail-inp">
 	document.getElementById("addcontacr-btn").onclick=add_contacts
 	
 </script>
+
+<style type="text/css">
+
+	body {
+		
+		/*background-image: url("https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-512.png");
+		background-color: orange*/
+	}
+
+	.yellow-text {
+		color: purple
+	}
+
+	.yellow-text {
+		font-size: 35px
+	}
+	.yellow-text {
+		background-color: purple:;
+	}
+
+	li {
+		font-size: 25px;
+		font-family: helvetica,monospace;
+		color: green;
+		border: solid;
+		border-color: ;
+		border-width: 7px;
+		background-color: pink
+		padding:10px;
+		margin-bottom: 15px
+	}
+
+	button {
+		font-size: 30
+
+	}
+
+	.label-text {
+		
+		font-weight: bold;
+		border-color: black;
+		background: pink;
+	}
+
+	}
+
+
+</style>
+
+
+<h2 style="color:blue; font-family: helvetica">Phone book app</h3>
+
+<label style="color: blue; font-size: 45px;" class="label-text">Name</label></label> <input id="name-inp" class="yellow-text"> </br>
+
+<label style="color: blue; font-size: 45px" class="label-text">e-mail </label> <input  id="mail-inp" class="yellow-text"> </br>
+
+<button id="addcontacr-btn">add contact</button> </br>
+
+<hr id="hr1" style="border: 2px solid red; border-radius: 15px">
+
+<button id="delete-btn"> delete </button>
+<input id="search-inp" style="float: right; font-size: 30"> </br>
+
+
+
+
+
+
+<ul id="contacts-list"></ul>
+
+<script type="text/javascript">
+	function add_contacts() {
+		
+		let name = document.getElementById("name-inp").value;
+		let email = document.getElementById("mail-inp").value;
+
+		let new_contact_li = document.createElement("li");
+	    let delete_button = document.createElement("button");
+		delete_button.innerHTML = "delete"; 
+
+		let inp = document.createElement("input")
+        inp.type = "checkbox"
+
+		new_contact_li.innerHTML = name + " " + email ;
+	    new_contact_li.appendChild(delete_button);
+	    new_contact_li.appendChild(inp)
+
+		delete_button.onclick = delete_contact;
+		document.getElementById("contacts-list").appendChild(new_contact_li);
+
+	}
+
+
+	
+
+	function delete_contact() {
+		
+		//this.parentNode.remove()
+		
+		let contact_ul = document.getElementById("contacts-list")
+    	let contacts = contact_ul.getElementsByTagName("li")
+    	for (var i =0;  i < contacts.length; i++) {
+        let contact_li = contacts[i]
+        }
+        let checkbox = contact_li.getElementsByTagName("input")[0]
+        if (checkbox.checked == true) {
+        contact_li.remove()
+       
+		
+		}
+      
+    }
+
+     function search_contacts() {
+
+     	alert("hi")
+     	
+		let search_thing = document.getElementById("search-inp").value 
+		let contacts_listitem =document.getElementsByTagName("li")
+		for (let i = 0; i < contacts_listitem.length; i++) {
+			let written_thing = contacts_listitem[i].innerHTML
+			let position = written_thing.indexOf(search_thing);
+			if (position > -1) {
+				alert(search_thing)
+			} else {
+				alert("not found")
+			}
+
+		}
+
+	}
+
+// 	 function log(message) {
+//    let mydib =  document.getElementById("console");
+//    mydib.innerHTML = mydib.innerHTML + message + "<br />";
+// }
+
+
+
+	document.getElementById("addcontacr-btn").onclick=add_contacts
+	document.getElementById("delete-btn").onclick= delete_contact
+	document.getElementById("search-inp").onckeydown= search_contacts
+	
+</script>

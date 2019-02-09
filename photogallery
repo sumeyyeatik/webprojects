@@ -1,0 +1,71 @@
+Image: <input id="image-inp"> </br>
+<img src="https://cdn1.ntv.com.tr/gorsel/turkiye/interpol-ve-europol-kirmizi-bultenle-ariyordu-kayseride-yakalandi,SxU-ck2vHkaDqxbNopnjLw.jpg?width=620&mode=crop&scale=both&v=20180804225321333&meta=rectangle" style="width:75px;height:80px;border:3"> </br>
+Description: <input id="description-inp"> </br>
+<button id="img-btn">Add image</button>
+
+<ul id="img-list" style="font-size: bold; color: red">Image list</ul>
+
+<script type="text/javascript">
+	function add_image() {
+		let image  = document.getElementById("image-inp").value
+		let new_li = document.createElement("li")
+		let upvote = document.createElement("button")
+		let downvote = document.createElement("button")
+		let comments_ul = document.createElement("ul")
+		let comments_inp = document.createElement("input")
+		let comments_btn = document.createElement("button")
+
+
+		upvote.innerHTML= "up button"
+		downvote.innerHTML= "down button"
+		new_li.innerHTML = "<img src='" + image + "'>" + "<span>" + 0 + "</span>"
+		comments_inp.innerHTML = "comment button"
+		comments_btn.innerHTML= "comment"
+
+		comments_ul.className = "comment-list"
+        comments_inp.className = "comment-box"
+
+
+		document.getElementById("img-list").appendChild(new_li)
+		new_li.appendChild(upvote)
+		new_li.appendChild(downvote)
+		new_li.appendChild(comments_ul)
+		new_li.appendChild(comments_inp)
+		new_li.appendChild(comments_btn)
+
+		upvote.onclick = down_or_upvote
+		downvote.onclick = down_or_upvote
+		comments_btn.onclick = add_comments
+
+	}
+
+	function down_or_upvote() {
+
+		let counter_span = this.parentNode.getElementsByTagName("span")[0]
+
+		if (this.innerHTML == "up button") {
+			counter_span.innerHTML = parseInt(counter_span.innerHTML) + 1
+		} 
+		else if (this.innerHTML == "down button") {
+			counter_span.innerHTML = parseInt(counter_span.innerHTML) - 1
+		}
+
+		counter_span.innerHTML = parseInt(counter_span.innerHTML) + vote
+}
+
+		function add_comments() {
+		let comment_text = this.parentNode.getElementsByClassName("comment-box")[0].value
+        let comments_ul = this.parentNode.getElementsByClassName("comment-list")[0]
+        let new_photo_li = document.createElement("li");
+        new_photo_li.innerHTML = comment_text;
+        comments_ul.appendChild(new_photo_li)
+			
+		}
+
+
+
+
+	document.getElementById("img-btn").onclick = add_image
+</script>
+
+

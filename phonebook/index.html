@@ -1,44 +1,9 @@
-name: <input id="name-inp" >
-e-mail: <input  id="mail-inp">
-<button id="addcontacr-btn">add contact</button>
-
-<ul id="contacts-list"></ul>
-
-<script type="text/javascript">
-	function add_contacts() {
-		
-		let name = document.getElementById("name-inp").value;
-		let email = document.getElementById("mail-inp").value;
-
-		let new_contact_li = document.createElement("li");
-		let delete_button = document.createElement("button");
-		delete_button.innerHTML = "delete"; 
-		
-		new_contact_li.innerHTML = name + " " + email ;
-		new_contact_li.appendChild(delete_button);
-
-		delete_button.onclick = delete_contact;
-		document.getElementById("contacts-list").appendChild(new_contact_li);
-
-	}
-
-	function delete_contact() {
-		
-		this.parentNode.remove()
-
-	 	
-	}
-
-	document.getElementById("addcontacr-btn").onclick=add_contacts
-	
-</script>
-
 <style type="text/css">
 
 	body {
 		
-		/*background-image: url("https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-512.png");
-		background-color: orange*/
+		background-image: url("https://cdn3.iconfinder.com/data/icons/communication-mass-media-news/512/phone_marketing-512.png");
+		background-color: orange
 	}
 
 	.yellow-text {
@@ -69,6 +34,12 @@ e-mail: <input  id="mail-inp">
 
 	}
 
+	.inputs-style {
+		color : red;
+		font-size: 25px,
+		font-family: monospace;
+	}
+
 	.label-text {
 		
 		font-weight: bold;
@@ -79,73 +50,57 @@ e-mail: <input  id="mail-inp">
 	}
 
 
-</style>
+</style> 
+<label class="label-text"> Name </label> : <input id="name-inp" class="inputs-style" ; > </br>
+<label class="label-text"> Email </label> : <input id="mail-inp" class="inputs-style"></br>
+<button  id="add-btn">add</button> </br>
+<button id="dlt-btn">delete</button>
+Search: <input id="search-inp" class="inputs-style">
 
-
-<h2 style="color:blue; font-family: helvetica">Phone book app</h3>
-
-<label style="color: blue; font-size: 45px;" class="label-text">Name</label></label> <input id="name-inp" class="yellow-text"> </br>
-
-<label style="color: blue; font-size: 45px" class="label-text">e-mail </label> <input  id="mail-inp" class="yellow-text"> </br>
-
-<button id="addcontacr-btn">add contact</button> </br>
-
-<hr id="hr1" style="border: 2px solid red; border-radius: 15px">
-
-<button id="delete-btn"> delete </button>
-<input id="search-inp" style="float: right; font-size: 30"> </br>
-
-
-
-
-
-
-<ul id="contacts-list"></ul>
+<ul id="contacts-list">Contacts list</ul>
 
 <script type="text/javascript">
-	function add_contacts() {
-		
+	function add_contacts_to_li() {
+		//alert("it works")
 		let name = document.getElementById("name-inp").value;
-		let email = document.getElementById("mail-inp").value;
+		let mail = document.getElementById("mail-inp").value;
 
-		let new_contact_li = document.createElement("li");
-	    let delete_button = document.createElement("button");
-		delete_button.innerHTML = "delete"; 
+		let new_li = document.createElement("li")
+		//let delete_contact = document.createElement("button")
 
-		let inp = document.createElement("input")
-        inp.type = "checkbox"
+		let input = document.createElement("input")
+		input.type = "checkbox"
 
-		new_contact_li.innerHTML = name + " " + email ;
-	    new_contact_li.appendChild(delete_button);
-	    new_contact_li.appendChild(inp)
+		//delete_contact.innerHTML = "delete"
+		new_li.innerHTML = name + " " + mail ;
 
-		delete_button.onclick = delete_contact;
-		document.getElementById("contacts-list").appendChild(new_contact_li);
+		
+		//new_li.appendChild(delete_contact)
+		new_li.appendChild(input)
+
+		document.getElementById("contacts-list").appendChild(new_li)
+
+		//delete_contact.onclick = delete_contacts
 
 	}
 
-
-	
-
-	function delete_contact() {
-		
-		//this.parentNode.remove()
-		
-		let contact_ul = document.getElementById("contacts-list")
-    	let contacts = contact_ul.getElementsByTagName("li")
+	function delete_contacts() {
+		// this.parentNode.remove()
+		//let contacts = document.getElementById("contacts_list").getElementsByTagName("li")
+		let contact_list_ul = document.getElementById("contacts-list")
+   	 	let contacts = contact_list_ul.getElementsByTagName("li")
     	for (var i =0;  i < contacts.length; i++) {
-        let contact_li = contacts[i]
-        }
-        let checkbox = contact_li.getElementsByTagName("input")[0]
-        if (checkbox.checked == true) {
-        contact_li.remove()
-       
-		
-		}
-      
-    }
 
-     function search_contacts() {
+     	 let contact_li = contacts[i]
+     	 let checkbox = contact_li.getElementsByTagName("input")[0]  
+     	 if (checkbox.checked == true) {
+        contact_li.remove()
+        }
+       }
+ 
+	}
+
+	  function search_contacts() {
 
      	alert("hi")
      	
@@ -164,15 +119,7 @@ e-mail: <input  id="mail-inp">
 
 	}
 
-// 	 function log(message) {
-//    let mydib =  document.getElementById("console");
-//    mydib.innerHTML = mydib.innerHTML + message + "<br />";
-// }
-
-
-
-	document.getElementById("addcontacr-btn").onclick=add_contacts
-	document.getElementById("delete-btn").onclick= delete_contact
-	document.getElementById("search-inp").onckeydown= search_contacts
-	
+	document.getElementById("add-btn").onclick = add_contacts_to_li
+	document.getElementById("dlt-btn").onclick = delete_contacts
+	document.getElementById("search-inp").onkeydown = search_contacts
 </script>

@@ -1,0 +1,57 @@
+<ul id="tv-showsul">
+<!-- 
+    EXAMPLE VIEW OF A TV SERIES:
+    <li>
+        <h5>Futuruma</h5>
+        <span>Votes: 3.9</span>
+    </li>
+ -->
+ </ul>
+
+<script type="text/javascript">
+    let tv_shows = [
+        "Games of Thrones",
+        "Better call saul",
+        "Breaking Bad",
+        "Futuruma",
+        "Rick and Morty"
+    ];
+    let votes = [
+        4.7,
+        3.6,
+        4.2,
+        3.9,
+        3.8
+    ];
+
+    for (let i = 0; i < tv_shows.length; i++) {
+        let series = tv_shows[i]
+        console.log(series)
+        let rating = votes[i]
+        console.log(rating)
+        let newlili = document.createElement("li")
+        console.log(newlili)
+        newlili.innerHTML = "<h5>'" + series + "'</h5>" + " " + "<span>'" + rating  +"'</span>"
+        console.log(newlili.innerHTML)
+        document.getElementById("tv-showsul").appendChild(newlili)
+
+
+        
+    }
+    // Tasks:
+    // Final goal: Show all the tv series in the HTML in a view as the example given above.
+    // steps to follow: 
+   //-use a loop to itirate the arrays 
+   //-create a li in the loop and fill its inner html with series and rating
+   //-append the li to the l in the html
+
+   //detalied steps: 
+   //1- take the length of tv_shows in the loop
+   // 2- iritate the shows array and assign it a variable
+   // 3-iritate the votes  array and assign it to a variable
+   // 4-create the li element 
+   // 5- fill in it inner html with series and rating variables
+   // 6- link new li to the ul which is in the html
+
+    
+</script>

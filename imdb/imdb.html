@@ -4,6 +4,10 @@
     <li>
         <h5>Futuruma</h5>
         <span>Votes: 3.9</span>
+        <ul class="comments">
+            <li>Futuruma is my favorite.</li>
+            <li>Bender is a funny dude.</li>
+        </ul>
     </li>
  -->
  </ul>
@@ -23,35 +27,68 @@
         3.9,
         3.8
     ];
+    let comments = [
+        ["This thrones wars are awesome!", "let's get together to pray for civilization"],
+        ["Saul is a hopeless man.", "I think he is an average lawer"],
+        ["Walter is a crazy, and bad", "He should have stayed in teaching business"],
+        ["Futuruma is my favorite.", "Bender is a funny dude."],
+        ["Mort is a loser.", "Rick is a, hmm, rick!"]
+    ];
 
-    for (let i = 0; i < tv_shows.length; i++) {
+     for (let i = 0; i < tv_shows.length; i++) {
         let series = tv_shows[i]
-        console.log(series)
         let rating = votes[i]
-        console.log(rating)
+        let comment = comments[i]
         let newlili = document.createElement("li")
-        console.log(newlili)
-        newlili.innerHTML = "<h5>'" + series + "'</h5>" + " " + "<span>'" + rating  +"'</span>"
-        console.log(newlili.innerHTML)
+        let headline = document.createElement("h5")
+        let span = document.createElement("span")
+        let newul = document.createElement("ul")
+        let commentli = document.createElement("li")
+        let nextcommentli = document.createElement("li")
+
+        commentli.innerHTML = comment[0]
+        nextcommentli.innerHTML = comment[1]
+        headline.innerHTML = series
+        span.innerHTML = rating
+        
+        newul.class = "comments"
+        newul.appendChild(commentli)
+        newul.appendChild(nextcommentli)
+        newlili.appendChild(headline)
+        newlili.appendChild(span)
+        newlili.appendChild(newul)
+        
+
         document.getElementById("tv-showsul").appendChild(newlili)
 
 
-        
     }
+
     // Tasks:
     // Final goal: Show all the tv series in the HTML in a view as the example given above.
-    // steps to follow: 
+    // First part: Just forget the comments and only show tv-shows and their votes.
+    // Second part: show the comments as well.
+
+       // Tasks:
+    // Final goal: Show all the tv series in the HTML in a view as the example given above.
+     // steps to follow: 
    //-use a loop to itirate the arrays 
    //-create a li in the loop and fill its inner html with series and rating
-   //-append the li to the l in the html
+   //create other elements (span, ul, li, h5), give their innerHtmls and attend them to their parrent(which is li)
+   //-append the li to the ul in the html
 
    //detalied steps: 
    //1- take the length of tv_shows in the loop
-   // 2- iritate the shows array and assign it a variable
-   // 3-iritate the votes  array and assign it to a variable
-   // 4-create the li element 
-   // 5- fill in it inner html with series and rating variables
-   // 6- link new li to the ul which is in the html
+   //2- iritate the shows array and assign it to a variable
+   //3-iritate the votes  array and assign it to a variable
+   //4-create the li element 
+   //5- create h5, span, ul and two lis
+   //li items have comment[0] and comment [1] in their innerhtmls
+   // add class to ul element
+   //two lis belong to ul's innerhtml,
+   //give span's, h5's and newlili's innerhtml
+   //ul, span and h5 belong to the newlili's innerhtml
+   //9 attend new li to the ul in the html
 
-    
-</script>
+
+    </script>

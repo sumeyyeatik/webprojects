@@ -1,8 +1,8 @@
 <style type="text/css">
  
-   body {
+    body {
       background-color: pink
-   }
+    }
 
   #tv-showsul img{
       width: 250px;
@@ -58,7 +58,7 @@
         3.8
     ];
 
-     let comments_array = [
+    let comments_array = [
         ["This thrones wars are awesome!", "let's get together to pray for civilization"],
         ["Saul is a hopeless man.", "I think he is an average lawer"],
         ["Walter is a crazy, and bad", "He should have stayed in teaching business"],
@@ -66,7 +66,7 @@
         ["Mort is a loser.", "Rick is a, hmm, rick!"]
     ];
 
-        let pictures = [
+    let pictures = [
         "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fblogbuzzter.de%2Fmedia%2F2017%2F08%2Fgame-of-thrones.jpg&f=1",
         "http://i.hurimg.com/i/hurriyet/75/750x422/56f3ed34c03c0e62108a2823.jpg",
         "https://im.haberturk.com/2018/11/07/2210719_554fbb8cad995aeb51b665a44dd13bad_640x640.jpg",
@@ -85,18 +85,18 @@
         for (var k = 0; k < comments.length; k++) {
           let comment = comments[k]
           let comment_li = document.createElement("li")
-           comment_li.innerHTML =comment 
-           comment_ul.appendChild(comment_li)
-            }
-          let img = document.createElement("img")
-          img.src = images
-          img.classList.add("pics")
-          console.log(img.src)
-          let newlili = document.createElement("li")
-          //console.log(newlili)
-          newlili.innerHTML = "<h5>'" + series + "'</h5>" + " " + "<span>'" + rating  +"'</span>" + + " " + "<img src= '" images + "'>" 
-          document.getElementById("tv-showsul").appendChild(newlili)
-          document.getElementById("tv-showsul").appendChild(comment_ul)
+          comment_li.innerHTML =comment 
+          comment_ul.appendChild(comment_li)
+          }
+        let img = document.createElement("img")
+        img.src = images
+        img.classList.add("pics")
+        console.log(img.src)
+        let newlili = document.createElement("li")
+        //console.log(newlili)
+        newlili.innerHTML = "<h5>'" + series + "'</h5>" + " " + "<span>'" + rating  +"'</span>" + + " " + "<img src= '" images + "'>" 
+        document.getElementById("tv-showsul").appendChild(newlili)
+        document.getElementById("tv-showsul").appendChild(comment_ul)
           
     }
 

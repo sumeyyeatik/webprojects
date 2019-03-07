@@ -1,13 +1,43 @@
+<style type="text/css">
+ 
+   body {
+      background-color: pink
+   }
+
+  #tv-showsul img{
+      width: 250px;
+      margin: 25px;
+      padding: 20px;
+      font-family: monospace;
+      border: 17px;
+      border-color: #38c5ec;
+      border-style: inset;
+
+  }
+
+  #tv-showsul h5 {
+    font-size: 30px;
+    margin-left: 
+  }
+  #tv-showsul ul {
+      font-size: 20px;
+      color: #2d003e;
+  }
+
+  #tv-showsul span {
+    font-size: 30px;
+    margin-left: 
+  }
+  
+</style>
+
+
 <ul id="tv-showsul">
 <!-- 
     EXAMPLE VIEW OF A TV SERIES:
     <li>
         <h5>Futuruma</h5>
         <span>Votes: 3.9</span>
-        <ul class="comments">
-            <li>Futuruma is my favorite.</li>
-            <li>Bender is a funny dude.</li>
-        </ul>
     </li>
  -->
  </ul>
@@ -27,7 +57,8 @@
         3.9,
         3.8
     ];
-    let comments = [
+
+     let comments_array = [
         ["This thrones wars are awesome!", "let's get together to pray for civilization"],
         ["Saul is a hopeless man.", "I think he is an average lawer"],
         ["Walter is a crazy, and bad", "He should have stayed in teaching business"],
@@ -35,60 +66,56 @@
         ["Mort is a loser.", "Rick is a, hmm, rick!"]
     ];
 
-     for (let i = 0; i < tv_shows.length; i++) {
+        let pictures = [
+        "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fblogbuzzter.de%2Fmedia%2F2017%2F08%2Fgame-of-thrones.jpg&f=1",
+        "http://i.hurimg.com/i/hurriyet/75/750x422/56f3ed34c03c0e62108a2823.jpg",
+        "https://im.haberturk.com/2018/11/07/2210719_554fbb8cad995aeb51b665a44dd13bad_640x640.jpg",
+        "http://www.thenatterbox.com/wp-content/uploads/2016/11/futurama-couverture-1080x658.png",
+        "https://foto.haberler.com/haber/2019/01/16/rick-morty-hayranlarina-mujde-4-sezonun-cekim-11647809_o.jpg"
+    ];
+
+    for (let i = 0; i < tv_shows.length; i++) {
         let series = tv_shows[i]
+        //console.log(series)
         let rating = votes[i]
-        let comment = comments[i]
-        let newlili = document.createElement("li")
-        let headline = document.createElement("h5")
-        let span = document.createElement("span")
-        let newul = document.createElement("ul")
-        let commentli = document.createElement("li")
-        let nextcommentli = document.createElement("li")
-
-        commentli.innerHTML = comment[0]
-        nextcommentli.innerHTML = comment[1]
-        headline.innerHTML = series
-        span.innerHTML = rating
-        
-        newul.class = "comments"
-        newul.appendChild(commentli)
-        newul.appendChild(nextcommentli)
-        newlili.appendChild(headline)
-        newlili.appendChild(span)
-        newlili.appendChild(newul)
-        
-
-        document.getElementById("tv-showsul").appendChild(newlili)
-
-
+       // console.log(rating)
+        let images = pictures[i]
+        let comments = comments_array[i]
+        let comment_ul = document.createElement( "ul")
+        for (var k = 0; k < comments.length; k++) {
+          let comment = comments[k]
+          let comment_li = document.createElement("li")
+           comment_li.innerHTML =comment 
+           comment_ul.appendChild(comment_li)
+            }
+          let img = document.createElement("img")
+          img.src = images
+          img.classList.add("pics")
+          console.log(img.src)
+          let newlili = document.createElement("li")
+          //console.log(newlili)
+          newlili.innerHTML = "<h5>'" + series + "'</h5>" + " " + "<span>'" + rating  +"'</span>" + + " " + "<img src= '" images + "'>" 
+          document.getElementById("tv-showsul").appendChild(newlili)
+          document.getElementById("tv-showsul").appendChild(comment_ul)
+          
     }
+
+
 
     // Tasks:
     // Final goal: Show all the tv series in the HTML in a view as the example given above.
-    // First part: Just forget the comments and only show tv-shows and their votes.
-    // Second part: show the comments as well.
-
-       // Tasks:
-    // Final goal: Show all the tv series in the HTML in a view as the example given above.
-     // steps to follow: 
+    // steps to follow: 
    //-use a loop to itirate the arrays 
    //-create a li in the loop and fill its inner html with series and rating
-   //create other elements (span, ul, li, h5), give their innerHtmls and attend them to their parrent(which is li)
-   //-append the li to the ul in the html
+   //-append the li to the l in the html
 
    //detalied steps: 
    //1- take the length of tv_shows in the loop
-   //2- iritate the shows array and assign it to a variable
-   //3-iritate the votes  array and assign it to a variable
-   //4-create the li element 
-   //5- create h5, span, ul and two lis
-   //li items have comment[0] and comment [1] in their innerhtmls
-   // add class to ul element
-   //two lis belong to ul's innerhtml,
-   //give span's, h5's and newlili's innerhtml
-   //ul, span and h5 belong to the newlili's innerhtml
-   //9 attend new li to the ul in the html
+   // 2- iritate the shows array and assign it a variable
+   // 3-iritate the votes  array and assign it to a variable
+   // 4-create the li element 
+   // 5- fill in it inner html with series and rating variables
+   // 6- link new li to the ul which is in the html
 
-
-    </script>
+    
+</script>

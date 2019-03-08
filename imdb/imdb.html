@@ -1,36 +1,126 @@
 <style type="text/css">
  
-    body {
-      background-color: pink
-    }
+   body {
+    background-color: #e5e5e5;
+    margin: 0;
+    padding: 0;
+  }
+
+  #tv-showsul  {
+    margin: auto;
+    width: 750;
+  }
 
   #tv-showsul img{
-      width: 250px;
-      margin: 25px;
-      padding: 20px;
-      font-family: monospace;
-      border: 17px;
-      border-color: #38c5ec;
-      border-style: inset;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1px;
+    font-family: monospace;
+    display: block;
+    border: 2px;
+    background: white
 
   }
 
   #tv-showsul h5 {
     font-size: 30px;
-    margin-left: 
+    font-family: sans-serif;
+    background: blue;
+    color: white;
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding: 10px;
+    background: #4c49bc;
+    font-size: 18px;
+    font-family: sans-serif;
+    color: white;
+    text-transform: uppercase;
+
   }
+
+  #tv-showsul h5 span {
+    color: white;
+    background: red;
+    font-size: 15;
+    border: solid;
+    border-color: white;
+    border-width: initial;
+    margin-left: 10;
+
+  } 
   #tv-showsul ul {
-      font-size: 20px;
-      color: #2d003e;
+    font-size: 20px;
+    color: #2d003e;
   }
 
   #tv-showsul span {
     font-size: 30px;
     margin-left: 
   }
+
+  #menu-div {
+    background-color: white;
+    padding: 10px;
+    border-bottom-style: groove;
+    
+}
+
+#menu-div a {
+  color: black;
+  margin-left: 10px;
+  font-size: 20px;
+  border: solid;
+  margin-right: 10px;
+  font-family: monospace;
+  font-weight: bold;
+  padding: 5px;
+}
+
+#menu-div img {
+  width: 60px;
+  vertical-align: middle
+}
+
+#menu-div input {
+  margin-left: auto;
+  float: right;
+  border-style: double;
+  width: 180px;
+  height: 45px;
+  font-size: 18;
+}
+
+#tv-showsul li.tv-serie {
+  list-style-type: none;
+  border: 1px solid #ccc;
+  background: white;
+  width: 740;
+  margin-bottom: 20px;
+  margin-top: 20;
+ }
+
+ .li {
+  margin: 10;
+  font-size: 18;
+}
+
+#tv-showsul li.tv-serie input {
+  font-size: 18px;
+  margin-left: 30;
+  width: 680;
+  margin-top: 10;
+  margin-bottom: 14;
+}
+
   
 </style>
 
+<div id="menu-div">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdshREGBdvPr0-tWXu-PqnFhgTOle7Xn3ANVFzOoHigEH2uDVt">
+    <a href="url"> Tv Series </a>
+    <a href="url"> Add a TV show </a>
+    <input placeholder="search">
+</div>
 
 <ul id="tv-showsul">
 <!-- 
@@ -82,6 +172,7 @@
         let images = pictures[i]
         let comments = comments_array[i]
         let comment_ul = document.createElement( "ul")
+        comment_ul.className ="comment-ul"
         for (var k = 0; k < comments.length; k++) {
           let comment = comments[k]
           let comment_li = document.createElement("li")
@@ -89,14 +180,25 @@
           comment_ul.appendChild(comment_li)
           }
         let img = document.createElement("img")
+        let newlili = document.createElement("li")
+        let header = document.createElement("h5")
+        let span_rating = document.createElement("span")
+        let comment_input = document.createElement("input")
+
         img.src = images
         img.classList.add("pics")
-        console.log(img.src)
-        let newlili = document.createElement("li")
-        //console.log(newlili)
-        newlili.innerHTML = "<h5>'" + series + "'</h5>" + " " + "<span>'" + rating  +"'</span>" + + " " + "<img src= '" images + "'>" 
+        newlili.className = "tv-serie"
+    
+        comment_input.className = "comment-inp"
+        comment_input.placeholder ="type your comment"
+
+        header.innerHTML =  "<span>" + rating  +"</span>" + " " +  series 
+        
+        newlili.appendChild(header)
+        newlili.appendChild(img)    
         document.getElementById("tv-showsul").appendChild(newlili)
-        document.getElementById("tv-showsul").appendChild(comment_ul)
+        newlili.appendChild(comment_ul)
+        newlili.appendChild(comment_input)
           
     }
 

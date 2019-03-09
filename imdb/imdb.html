@@ -117,8 +117,10 @@
 
 <div id="menu-div">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdshREGBdvPr0-tWXu-PqnFhgTOle7Xn3ANVFzOoHigEH2uDVt">
-    <a href="url"> Tv Series </a>
-    <a href="url"> Add a TV show </a>
+    <ul>
+        <li><button id="show-tv-shows">TV Series </button></li>
+        <li> <button id="show-add-tv-show-form"> Add a TV show </button></li>
+    </ul>
     <input placeholder="search">
 </div>
 
@@ -132,92 +134,146 @@
  -->
  </ul>
 
+ <div id="add-tv-show" class="hide">
+     <label>Title</label> <input id="title-inp"> <br/>
+     <label>Rating</label> <input id="rating-inp">><br/>
+     <label>Photo </label> <input id="photo-inp">><br/>
+     <button id="add-tv-show">add</button>
+ </div>
+
 <script type="text/javascript">
-    let tv_shows = [
-        "Games of Thrones",
-        "Better call saul",
-        "Breaking Bad",
-        "Futuruma",
-        "Rick and Morty"
-    ];
-    let votes = [
-        4.7,
-        3.6,
-        4.2,
-        3.9,
-        3.8
-    ];
+let got = {
+        "title": "Game Of Thrones",
+        "rating": 4,
+        "seen_counter": 5,
+        "photo": "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fblogbuzzter.de%2Fmedia%2F2017%2F08%2Fgame-of-thrones.jpg&f=1",
+        "comments": ["This thrones wars are awesome!", "let's get together to pray for civilization"]
+    };
 
-    let comments_array = [
-        ["This thrones wars are awesome!", "let's get together to pray for civilization"],
-        ["Saul is a hopeless man.", "I think he is an average lawer"],
-        ["Walter is a crazy, and bad", "He should have stayed in teaching business"],
-        ["Futuruma is my favorite.", "Bender is a funny dude."],
-        ["Mort is a loser.", "Rick is a, hmm, rick!"]
-    ];
+    let saul = {
+        "title": "Better call saul",
+        "rating": 3.6,
+        "seen_counter": 12,
+        "photo": "http://i.hurimg.com/i/hurriyet/75/750x422/56f3ed34c03c0e62108a2823.jpg",
+        "comments": ["Saul is a hopeless man.", "I think he is an average lawer"]
+    };
 
-    let pictures = [
-        "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fblogbuzzter.de%2Fmedia%2F2017%2F08%2Fgame-of-thrones.jpg&f=1",
-        "http://i.hurimg.com/i/hurriyet/75/750x422/56f3ed34c03c0e62108a2823.jpg",
-        "https://im.haberturk.com/2018/11/07/2210719_554fbb8cad995aeb51b665a44dd13bad_640x640.jpg",
-        "http://www.thenatterbox.com/wp-content/uploads/2016/11/futurama-couverture-1080x658.png",
-        "https://foto.haberler.com/haber/2019/01/16/rick-morty-hayranlarina-mujde-4-sezonun-cekim-11647809_o.jpg"
-    ];
+    let bad = {
+        "title": "Breaking Bad",
+        "rating": 4.2,
+        "seen_counter": 4,
+        "photo": "https://im.haberturk.com/2018/11/07/2210719_554fbb8cad995aeb51b665a44dd13bad_640x640.jpg",
+        "comments": ["Walter is a crazy, and bad", "He should have stayed in teaching business"]
+    };
 
+    let futuruma = {
+        "title": "Futuruma",
+        "rating": 3.9,
+        "seen_counter": 421,
+        "photo": "http://www.thenatterbox.com/wp-content/uploads/2016/11/futurama-couverture-1080x658.png",
+        "comments": ["Futuruma is my favorite.", "Bender is a funny dude."]
+    };
+
+    let rick = {
+        "title": "Rick and Morty",
+        "rating": 3.8,
+        "seen_counter": 98,
+        "photo": "https://foto.haberler.com/haber/2019/01/16/rick-morty-hayranlarina-mujde-4-sezonun-cekim-11647809_o.jpg",
+        "comments": ["Mort is a loser.", "Rick is a, hmm, rick!"]
+    };
+
+    let sumeyye = {
+        "username": "sumbok",
+        "favorite_shows": [bad, rick]
+    };
+    let muatik = {
+        "username": "muatik",
+        "favorite_shows": [got, futuruma, bad]
+    };
+
+    let tv_shows = [got, saul, bad, futuruma, rick];
+
+    function list_series() {
+       
+    let tv_shows_ul = document.getElementById("tv-showsul")
+    tv_shows_ul.innerHTML = ";"
     for (let i = 0; i < tv_shows.length; i++) {
         let series = tv_shows[i]
-        //console.log(series)
-        let rating = votes[i]
-       // console.log(rating)
-        let images = pictures[i]
-        let comments = comments_array[i]
+        
         let comment_ul = document.createElement( "ul")
-        comment_ul.className ="comment-ul"
-        for (var k = 0; k < comments.length; k++) {
-          let comment = comments[k]
+        comment_ul.classList.add("comments")
+
+        for (var k = 0; k < series.comments.length; k++) {
+          let comment = series.comments[k]
           let comment_li = document.createElement("li")
           comment_li.innerHTML =comment 
           comment_ul.appendChild(comment_li)
           }
-        let img = document.createElement("img")
-        let newlili = document.createElement("li")
-        let header = document.createElement("h5")
-        let span_rating = document.createElement("span")
-        let comment_input = document.createElement("input")
 
-        img.src = images
-        img.classList.add("pics")
-        newlili.className = "tv-serie"
-    
-        comment_input.className = "comment-inp"
-        comment_input.placeholder ="type your comment"
-
-        header.innerHTML =  "<span>" + rating  +"</span>" + " " +  series 
         
-        newlili.appendChild(header)
-        newlili.appendChild(img)    
+        let newlili = document.createElement("li")
+        newlili.classList.add("tv-serie")
+
+        newlili.innerHTML = "<h5><span>" + series.rating + "</span>" + series.title + "seen by" + series.seen_counter + "</h5><img src='" +series.photo + "'>" 
+
+
         document.getElementById("tv-showsul").appendChild(newlili)
         newlili.appendChild(comment_ul)
+        
+        let comment_input = document.createElement("input")
+        comment_input.classList.add("comment-inp")
+        comment_input.placeholder ="type your comment"
         newlili.appendChild(comment_input)
           
+        
+
+        comment_input.onkeypress = comment_function
+          
+    }
+}
+    function comment_function(event) {
+        if (event.keyCode == 13) {
+            let user_input = this.value;
+            this.value =""
+
+            let comment_ul = this.parentNode.getElementsByClassName("comments")[0];
+            console.log(comment_ul)
+            let new_li = document.createElement("li");
+            new_li.innerHTML = user_input
+            comment_ul.appendChild(new_li)
+        }
     }
 
+    function display_show_form() {
+        document.getElementById("add-tv-show").classList.remove("hide")
+        document.getElementById("tv-showsul").classList.add("hide")
+    }
+
+    function display_tv_series () {
+        document.getElementById("add-tv-show").classList.add("hide")
+        document.getElementById("tv-showsul").classList.remove("hide")
+        list_series()
+    }
+
+    function add_new_serie() {
+        let show = {
+            "title": document.getElementById("title-inp").value,
+            "rating": document.getElementById("rating-inp").value,
+            "photo":document.getElementById("photo-inp").value,
+            "seen_counter": 0,
+            "comments": []
 
 
-    // Tasks:
-    // Final goal: Show all the tv series in the HTML in a view as the example given above.
-    // steps to follow: 
-   //-use a loop to itirate the arrays 
-   //-create a li in the loop and fill its inner html with series and rating
-   //-append the li to the l in the html
+        }
+         tv_shows.push(show)
+    }
 
-   //detalied steps: 
-   //1- take the length of tv_shows in the loop
-   // 2- iritate the shows array and assign it a variable
-   // 3-iritate the votes  array and assign it to a variable
-   // 4-create the li element 
-   // 5- fill in it inner html with series and rating variables
-   // 6- link new li to the ul which is in the html
+    document.getElementById("show-add-tv-show-form").onclick = display_show_form
 
-    
-</script>
+    document.getElementById("show-tv-shows").onclick = display_tv_series
+   
+    document.getElementById("add-tv-show").onclick = add_new_serie
+
+    list_series()
+
+    </script>

@@ -5,12 +5,10 @@
     margin: 0;
     padding: 0;
   }
-
   #tv-showsul  {
     margin: auto;
     width: 750;
   }
-
   #tv-showsul img{
     width: 90%;
     margin: 0 auto;
@@ -19,9 +17,7 @@
     display: block;
     border: 2px;
     background: white
-
   }
-
   #tv-showsul h5 {
     font-size: 30px;
     font-family: sans-serif;
@@ -35,9 +31,7 @@
     font-family: sans-serif;
     color: white;
     text-transform: uppercase;
-
   }
-
   #tv-showsul h5 span {
     color: white;
     background: red;
@@ -46,60 +40,53 @@
     border-color: white;
     border-width: initial;
     margin-left: 10;
-
   } 
   #tv-showsul ul {
     font-size: 20px;
     color: #2d003e;
   }
-
   #tv-showsul span {
     font-size: 30px;
     margin-left: 
   }
-
   #menu-div {
     background-color: white;
     padding: 10px;
     border-bottom-style: groove;
     
-}
-
-#menu-div a {
-  color: black;
-  margin-left: 10px;
-  font-size: 20px;
-  border: solid;
-  margin-right: 10px;
-  font-family: monospace;
-  font-weight: bold;
-  padding: 5px;
-}
-
-#menu-div img {
-  width: 60px;
-  vertical-align: middle
-}
-
-#menu-div input {
-  margin-left: auto;
-  float: right;
-  border-style: double;
-  width: 180px;
-  height: 45px;
-  font-size: 18;
-}
-
-#tv-showsul li.tv-serie {
-  list-style-type: none;
-  border: 1px solid #ccc;
-  background: white;
-  width: 740;
-  margin-bottom: 20px;
-  margin-top: 20;
  }
+  #menu-div a {
+    color: black;
+    margin-left: 10px;
+    font-size: 20px;
+    border: solid;
+    margin-right: 10px;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 5px;
+ }
+  #menu-div img {
+    width: 60px;
+    vertical-align: middle 
+  }
+  #menu-div input {
+    margin-left: auto;
+    float: right;
+    border-style: double;
+    width: 180px;
+    height: 45px;
+    font-size: 18;
+}
+    #tv-showsul li.tv-serie {
+    list-style-type: none;
+    border: 1px solid #ccc;
+    background: white;
+    width: 740;
+    margin-bottom: 20px;
+    margin-top: 20;
+}
 
- .li {
+.li {
   margin: 10;
   font-size: 18;
 }
@@ -111,8 +98,12 @@
   margin-top: 10;
   margin-bottom: 14;
 }
-
 .hide {display: none;
+}
+
+.genres li {
+    display: inline;
+    margin-right: 5px
 }
   
 </style>
@@ -144,7 +135,7 @@
  </div>
 
 <script type="text/javascript">
-let got = {
+    let got = {
         "title": "Game Of Thrones",
         "rating": 4,
         "seen_counter": 5,
@@ -152,7 +143,6 @@ let got = {
         "comments": ["This thrones wars are awesome!", "let's get together to pray for civilization"],
         "genres":["fantasy","fiction"]
     };
-
     let saul = {
         "title": "Better call saul",
         "rating": 3.6,
@@ -161,7 +151,6 @@ let got = {
         "comments": ["Saul is a hopeless man.", "I think he is an average lawer"],
         "genres" : ["crime", "comedy"]
     };
-
     let bad = {
         "title": "Breaking Bad",
         "rating": 4.2,
@@ -170,7 +159,6 @@ let got = {
         "comments": ["Walter is a crazy, and bad", "He should have stayed in teaching business"],
         "genres" : ["crime", "narcotics"]
     };
-
     let futuruma = {
         "title": "Futuruma",
         "rating": 3.9,
@@ -179,7 +167,6 @@ let got = {
         "comments": ["Futuruma is my favorite.", "Bender is a funny dude."],
         "genres" : ["animation", "fiction"]
     };
-
     let rick = {
         "title": "Rick and Morty",
         "rating": 3.8,
@@ -188,7 +175,6 @@ let got = {
         "comments": ["Mort is a loser.", "Rick is a, hmm, rick!"],
         "genres" : ["animation", "comedy"]
     };
-
     let sumeyye = {
         "username": "sumbok",
         "favorite_shows": [bad, rick]
@@ -199,66 +185,58 @@ let got = {
     };
 
     let tv_shows = [got, saul, bad, futuruma, rick];
-
     function list_series() {
        
     let tv_shows_ul = document.getElementById("tv-showsul")
     tv_shows_ul.innerHTML = ";"
+
     for (let i = 0; i < tv_shows.length; i++) {
         let series = tv_shows[i]
         
         let comment_ul = document.createElement( "ul")
         comment_ul.classList.add("comments")
-
         let genre_ul = document.createElement( "ul")
-        genre_ul.classList.add("genre")
-
+        genre_ul.classList.add("genres")
 
         for (var k = 0; k < series.comments.length; k++) {
           let comment = series.comments[k]
           let comment_li = document.createElement("li")
           comment_li.innerHTML =comment 
           comment_ul.appendChild(comment_li)
-          
-          
           }
 
-          for (let j =0; j < series.genres.length; j++) {
-              let genre = series.genres[j]
-              let genre_li = document.createElement("li")
-               genre_li.innerHTML = genre
-               genre_ul.appendChild(genre_li)
-          }
-
-        
+        for (let j =0; j < series.genres.length; j++) {
+          let genre = series.genres[j]
+          let genre_li = document.createElement("li")
+          genre_li.innerHTML = genre
+          genre_ul.appendChild(genre_li)
+        }
+    
         let newlili = document.createElement("li")
         newlili.classList.add("tv-serie")
-
         newlili.innerHTML = "<h5><span>" + series.rating + "</span>" + series.title + "seen by" + series.seen_counter + "</h5><img src='" +series.photo + "'>" 
-
 
         document.getElementById("tv-showsul").appendChild(newlili)
         newlili.appendChild(comment_ul)
         newlili.appendChild(genre_ul)
         
         
-
         let comment_input = document.createElement("input")
         comment_input.classList.add("comment-inp")
         comment_input.placeholder ="type your comment"
         newlili.appendChild(comment_input)
           
         
-
         comment_input.onkeypress = comment_function
           
+        }
     }
-}
+
     function comment_function(event) {
+
         if (event.keyCode == 13) {
             let user_input = this.value;
             this.value =""
-
             let comment_ul = this.parentNode.getElementsByClassName("comments")[0];
             console.log(comment_ul)
             let new_li = document.createElement("li");
@@ -268,11 +246,14 @@ let got = {
     }
 
     function display_show_form() {
+
         document.getElementById("add-tv-show").classList.remove("hide")
         document.getElementById("tv-showsul").classList.add("hide")
+
     }
 
     function display_tv_series () {
+
         document.getElementById("add-tv-show").classList.add("hide")
         document.getElementById("tv-showsul").classList.remove("hide")
         list_series()
@@ -285,18 +266,13 @@ let got = {
             "photo":document.getElementById("photo-inp").value,
             "seen_counter": 0,
             "comments": []
-
-
         }
-         tv_shows.push(show)
+
+        tv_shows.push(show)
     }
 
     document.getElementById("show-add-tv-show-form").onclick = display_show_form
-
     document.getElementById("show-tv-shows").onclick = display_tv_series
-   
     document.getElementById("add-tv-show").onclick = add_new_serie
-
     list_series()
-
     </script>

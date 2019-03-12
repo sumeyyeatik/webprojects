@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
   }
+ 
   #tv-showsul  {
     margin: auto;
     width: 750;
@@ -18,6 +19,7 @@
     border: 2px;
     background: white
   }
+ 
   #tv-showsul h5 {
     font-size: 30px;
     font-family: sans-serif;
@@ -32,6 +34,7 @@
     color: white;
     text-transform: uppercase;
   }
+ 
   #tv-showsul h5 span {
     color: white;
     background: red;
@@ -41,21 +44,25 @@
     border-width: initial;
     margin-left: 10;
   } 
+ 
   #tv-showsul ul {
     font-size: 20px;
     color: #2d003e;
   }
+ 
   #tv-showsul span {
     font-size: 30px;
     margin-left: 
   }
+ 
   #menu-div {
     background-color: white;
     padding: 10px;
     border-bottom-style: groove;
     
  }
-  #menu-div a {
+ 
+ #menu-div a {
     color: black;
     margin-left: 10px;
     font-size: 20px;
@@ -65,11 +72,13 @@
     font-weight: bold;
     padding: 5px;
  }
-  #menu-div img {
+
+ #menu-div img {
     width: 60px;
     vertical-align: middle 
-  }
-  #menu-div input {
+ }
+
+ #menu-div input {
     margin-left: auto;
     float: right;
     border-style: double;
@@ -77,13 +86,18 @@
     height: 45px;
     font-size: 18;
 }
-    #tv-showsul li.tv-serie {
+ 
+#tv-showsul li.tv-serie {
     list-style-type: none;
     border: 1px solid #ccc;
     background: white;
     width: 740;
     margin-bottom: 20px;
     margin-top: 20;
+}
+
+#menu-div li {
+    display: inline-block;
 }
 
 .li {
@@ -98,14 +112,48 @@
   margin-top: 10;
   margin-bottom: 14;
 }
-.hide {display: none;
+
+.hide {
+    display: none;
 }
 
 .genres li {
     display: inline;
     margin-right: 5px
 }
+
+#add-tv-show {
+    background-color: white;
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px;
+    padding-left: 40;
+    width: 45%;
+    
+}
+
+#add-tv-show label {
+    font-family: sans-serif;
+    font-size: larger;
+}
+
+#add-tv-show button {
+    background-color: #e2dada;
+    font-size: 12;
+    height: 4;
+    width: 5;s
+}
+
+#add-tv-show input {
+    width: 85%;
+    display: -webkit-box;
+}
   
+#add-tv-show h3 {
+    font-family: sans-serif;
+}
+
+
 </style>
 
 <div id="menu-div">
@@ -128,9 +176,11 @@
  </ul>
 
  <div id="add-tv-show" class="hide">
-     <label>Title</label> <input id="title-inp"> <br/>
-     <label>Rating</label> <input id="rating-inp">><br/>
-     <label>Photo </label> <input id="photo-inp">><br/>
+     <h3>Add a New TV Show </h3>
+     <hr>
+     <label>Title:</label> <input id="title-inp"> <br/>
+     <label>Rating:</label> <input id="rating-inp"><br/>
+     <label>Photo: </label> <input id="photo-inp"><br/>
      <button id="add-tv-show">add</button>
  </div>
 
@@ -185,10 +235,11 @@
     };
 
     let tv_shows = [got, saul, bad, futuruma, rick];
+ 
     function list_series() {
        
     let tv_shows_ul = document.getElementById("tv-showsul")
-    tv_shows_ul.innerHTML = ";"
+    tv_shows_ul.innerHTML = " "
 
     for (let i = 0; i < tv_shows.length; i++) {
         let series = tv_shows[i]
@@ -203,7 +254,7 @@
           let comment_li = document.createElement("li")
           comment_li.innerHTML =comment 
           comment_ul.appendChild(comment_li)
-          }
+        }
 
         for (let j =0; j < series.genres.length; j++) {
           let genre = series.genres[j]
@@ -275,4 +326,5 @@
     document.getElementById("show-tv-shows").onclick = display_tv_series
     document.getElementById("add-tv-show").onclick = add_new_serie
     list_series()
+    
     </script>

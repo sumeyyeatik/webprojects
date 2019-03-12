@@ -1,0 +1,184 @@
+<style type="text/css">
+ 
+   body {
+    background-color: #e5e5e5;
+    margin: 0;
+    padding: 0;
+  }
+ 
+  #tv-showsul  {
+    margin: auto;
+    width: 750;
+  }
+  #tv-showsul img{
+    width: 90%;
+    margin: 0 auto;
+    padding: 1px;
+    font-family: monospace;
+    display: block;
+    border: 2px;
+    background: white
+  }
+ 
+  #tv-showsul h5 {
+    font-size: 30px;
+    font-family: sans-serif;
+    background: blue;
+    color: white;
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding: 10px;
+    background: #4c49bc;
+    font-size: 18px;
+    font-family: sans-serif;
+    color: white;
+    text-transform: uppercase;
+  }
+ 
+  #tv-showsul h5 span {
+    color: white;
+    background: red;
+    font-size: 15;
+    border: solid;
+    border-color: white;
+    border-width: initial;
+    margin-left: 10;
+  } 
+ 
+  #tv-showsul ul {
+    font-size: 20px;
+    color: #2d003e;
+  }
+ 
+  #tv-showsul span {
+    font-size: 30px;
+    margin-left: 
+  }
+ 
+  #menu-div {
+    background-color: white;
+    padding: 10px;
+    border-bottom-style: groove;
+    
+ }
+ 
+ #menu-div a {
+    color: black;
+    margin-left: 10px;
+    font-size: 20px;
+    border: solid;
+    margin-right: 10px;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 5px;
+ }
+ #menu-div img {
+    width: 60px;
+    vertical-align: middle 
+ }
+ #menu-div input {
+    margin-left: auto;
+    float: right;
+    border-style: double;
+    width: 180px;
+    height: 45px;
+    font-size: 18;
+}
+ 
+#tv-showsul li.tv-serie {
+    list-style-type: none;
+    border: 1px solid #ccc;
+    background: white;
+    width: 740;
+    margin-bottom: 20px;
+    margin-top: 20;
+}
+#menu-div li {
+    display: inline-block;
+}
+.li {
+  margin: 10;
+  font-size: 18;
+}
+#tv-showsul li.tv-serie input {
+  font-size: 18px;
+  margin-left: 30;
+  width: 680;
+  margin-top: 10;
+  margin-bottom: 14;
+}
+.hide {
+    display: none;
+}
+.genres li {
+    display: inline;
+    margin-right: 5px
+}
+#add-tv-show {
+    background-color: white;
+    margin: auto;
+    margin-top: 30px;
+    padding: 10px;
+    padding-left: 40;
+    width: 45%;
+    
+}
+#add-tv-show label {
+    font-family: sans-serif;
+    font-size: larger;
+    width: 150px;
+    display: inline-block;
+    margin-bottom: 10px
+  }
+#add-tv-show button {
+    background-color: #e2dada;
+    font-size: 12;
+    height: 4;
+    width: 5;s
+}
+
+#add-tv-show h3 {
+    font-family: sans-serif;
+}
+</style>
+
+<div id="menu-div">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdshREGBdvPr0-tWXu-PqnFhgTOle7Xn3ANVFzOoHigEH2uDVt">
+    <ul>
+        <li><button id="show-tv-shows">TV Series </button></li>
+        <li> <button id="show-add-tv-show-form"> Add a TV show </button></li>
+    </ul>
+    <input placeholder="search">
+</div>
+
+<ul id="tv-showsul">
+<!-- 
+    EXAMPLE VIEW OF A TV SERIES:
+    <li>
+        <h5>Futuruma</h5>
+        <span>Votes: 3.9</span>
+    </li>
+ -->
+ </ul>
+
+ <div id="add-tv-show" class="hide">
+     <h3>Add a New TV Show </h3>
+     <hr>
+     <label>Title:</label> <input id="title-inp"> <br/>
+     <label>Rating:</label> <input id="rating-inp"><br/>
+     <label>Photo: </label> <input id="photo-inp"><br/>
+     <button id="add-tv-show">add</button>
+ </div>
+
+<script type="text/javascript" src="imbdarrays.js"></script>
+<script type="text/javascript" src="functions.js"></script>
+<script type="text/javascript" src="commentimbd.js"></script>
+<script type="text/javascript" src="displayimbd.js"></script>
+<script type="text/javascript">
+    
+    document.getElementById("show-add-tv-show-form").onclick = display_show_form
+    document.getElementById("show-tv-shows").onclick = display_tv_series
+    document.getElementById("add-tv-show").onclick = add_new_serie
+    list_series()
+    
+    </script>
